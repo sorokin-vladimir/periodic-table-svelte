@@ -1,9 +1,6 @@
-type MapPropsToStyles = (
-  props: Record<string, (string | boolean)>,
-  // styles: Record<string, string>,
-) => string;
+type MapPropsToStyles = (props: Record<string, (string | boolean)>) => string;
 
-const mapPropsToStyles: MapPropsToStyles = (props = {}/* , styles = {root: ''} */) => {
+const mapPropsToStyles: MapPropsToStyles = (props = {}) => {
   const mappedClassNames = Object.entries(props).reduce((mappedStyles, [prop, value]) => {
     let className = '';
     switch(typeof value) {
@@ -15,12 +12,10 @@ const mapPropsToStyles: MapPropsToStyles = (props = {}/* , styles = {root: ''} *
         break;
     }
     if (className === '') return mappedStyles;
-    // return { ...mappedStyles, [styles[className]]: true }
     return `${mappedStyles} ${className}`;
   }, '');
 
-  // return clsx(styles.root, mappedClassNames);
-  return `root ${mappedClassNames}`;
+  return `root${mappedClassNames}`;
 }
 
 export { mapPropsToStyles }

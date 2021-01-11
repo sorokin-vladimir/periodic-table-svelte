@@ -8,17 +8,12 @@ export let isTruncate = false;
 
 let className = '';
 
-$: if (
-  !color &&
-  (variant === 'label' || variant === 'label-small')
-) {
-  color = 'text-secondary';
-  console.log(`script:16 | set color to `, color);
+$: { if (!color && (variant === 'label' || variant === 'label-small')) {
+    color = 'text-secondary';
+  }
+
+  className = mapPropsToStyles({ ...$$props, color });
 }
-
-$: console.log(`script:16 | props`, $$props, mapPropsToStyles($$props));
-
-$: className = mapPropsToStyles($$props);
 
 // TYPES
 type TypographyVariant = 'label-primary' |
@@ -46,5 +41,3 @@ type TypographyWeight = 'extra-light' |
 //   weight?: TypographyWeight;
 //   isTruncate?: boolean;
 // };
-
-$: console.log(`index:2 | props`, $$props, $$slots);
