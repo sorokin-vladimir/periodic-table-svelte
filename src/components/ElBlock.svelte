@@ -40,15 +40,15 @@
   <div class={`element el-num-${el.number} el-category-${category}`}>
     <Typography variant='subtitle'>{el.symbol}</Typography>
     <br/>
-    <Typography variant='label-small'>{el.number}</Typography>
+    <Typography variant='label-small' color='text-primary'>{el.number}</Typography>
   </div>
 {:else if el.number === 57}
   <div class={`element el-category-${category}`}>
-    <Typography variant='label'>57-71</Typography>
+    <Typography variant='label' color='text-primary'>57-71</Typography>
   </div>
 {:else if el.number === 89}
   <div class={`element el-category-${category}`}>
-    <Typography variant='label'>89-103</Typography>
+    <Typography variant='label' color='text-primary'>89-103</Typography>
   </div>
 {/if}
 

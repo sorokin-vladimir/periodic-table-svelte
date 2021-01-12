@@ -2,6 +2,7 @@ type MapPropsToStyles = (props: Record<string, (string | boolean)>) => string;
 
 const mapPropsToStyles: MapPropsToStyles = (props = {}) => {
   const mappedClassNames = Object.entries(props).reduce((mappedStyles, [prop, value]) => {
+    if (prop === 'className') return mappedStyles;
     let className = '';
     switch(typeof value) {
       case 'boolean':

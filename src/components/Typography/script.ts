@@ -1,18 +1,19 @@
 import { mapPropsToStyles } from '../../utils/mapPropsToStyles';
 
-export let as: TypographyAs = 'span';
+export let el: TypographyEl = 'span';
 export let color: TypographyColor;
 export let variant: TypographyVariant = 'primary-body';
 export let weight: TypographyWeight = 'regular';
 export let isTruncate = false;
+export let className = '';
 
-let className = '';
+let cls = '';
 
 $: { if (!color && (variant === 'label' || variant === 'label-small')) {
     color = 'text-secondary';
   }
 
-  className = mapPropsToStyles({ ...$$props, color });
+  cls = mapPropsToStyles({ ...$$props, color });
 }
 
 // TYPES
@@ -23,8 +24,8 @@ type TypographyVariant = 'label-primary' |
   'primary-body' |
   'body-semibold' |
   'title';
-type TypographyAs = 'span' | 'div';
-type TypographyColor = 'white' | 'text-secondary' | 'btn-disabled';
+type TypographyEl = 'span' | 'div';
+type TypographyColor = 'text-primary' | 'white' | 'text-secondary' | 'btn-disabled';
 type TypographyWeight = 'extra-light' |
   'light' |
   'regular' |
